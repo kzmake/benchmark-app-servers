@@ -1,0 +1,33 @@
+# Vagrant
+.vagrant
+
+# Elixir
+/servers/**/_build
+/servers/**/cover
+/servers/**/deps
+erl_crash.dump
+*.ez
+*.class
+*.beam
+/servers/**/priv/static/
+/db
+/*.ez
+
+# Python
+/servers/__pycache__
+/servers/*.pyc
+
+# Crystal
+*.dwarf
+
+# Executable
+crystal_server
+go_server
+nim_server
+
+# others
+.DS_Store
+
+# Jetbrains IDEA
+.idea/
+*.iml
