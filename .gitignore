@@ -10,8 +10,9 @@ erl_crash.dump
 *.class
 *.beam
 /servers/**/priv/static/
-/db
-/*.ez
+/servers/**/db
+mix.lock
+
 
 # Python
 /servers/__pycache__
