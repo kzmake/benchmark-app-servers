@@ -8,8 +8,7 @@ Created from `mix phx.new cowboy-with-phoenix --app hello_world --no-ecto --no-b
 ### Bootstrap
 
 ```sh
-$ MIX_ENV=prod mix compile
-$ mix phx.digest
+$ MIX_ENV=prod mix do deps.get, compile, phx.digest
 $ PORT=4000 MIX_ENV=prod elixir --detached -S mix phx.server
 ```
 
