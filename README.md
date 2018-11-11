@@ -43,6 +43,10 @@
 * Erlang/OTP 21
 * Elixir 1.7.4 (compiled with Erlang/OTP 21)
 
+### Python
+
+* Python 3.7.1
+
 ## Platform
 
 下記の環境を検証に利用。
@@ -128,11 +132,12 @@ dstat -tf -cm -C 0,1,2,3,total --noheaders 1
 
 | Language                  | App Server                                                    | Req/sec           |
 | :------------------------ | :------------------------------------------------------------ | ----------------: |
-| [Elixir](#elixir)         | [Cowboy + Plug](#cowboy-plug)                                 |         48501.17  |
-| [Elixir](#elixir)         | [Cowboy2 + Plug](#cowboy2-plug)                               |         33547.23  |
-| [Python](#python)         | [Gunicorn + flask + meinheld](#gunicorn-flask-meinheld)       |         21216.30  |
-| [Elixir](#elixir)         | [Cowboy + Phoenix](#cowboy-phoenix)                           |         19897.84  |
-| [Elixir](#elixir)         | [Cowboy2 + Maru](#cowboy2-maru)                               |         15345.62  |
+| [Elixir](#elixir)         | [cowboy + plug](#cowboy-plug)                                 |         48501.17  |
+| [Elixir](#elixir)         | [cowboy2 + plug](#cowboy2-plug)                               |         33547.23  |
+| [Python](#python)         | [gunicorn + flask + meinheld](#gunicorn-flask-meinheld)       |         21216.30  |
+| [Elixir](#elixir)         | [cowboy + phoenix](#cowboy-phoenix)                           |         19897.84  |
+| [Python](#python)         | [bjoern + bottle](#bjoern-bottle)                             |         17342.36  |
+| [Elixir](#elixir)         | [cowboy2 + maru](#cowboy2-maru)                               |         15345.62  |
 
 
 ## Elixir: cowboy + plug
@@ -270,4 +275,31 @@ Running 30s test @ http://192.168.10.10:4000/
   638610 requests in 30.10s, 98.05MB read
 Requests/sec:  21216.30
 Transfer/sec:      3.26MB
+```
+
+## Python: bjoern + bottle
+
+* [bjoern](https://github.com/jonashaag/bjoern)
+* [bottle](https://github.com/bottlepy/bottle)
+
+### Bootstrap
+
+```bash
+cd servers/bjoern-with-bottle
+pipenv sync
+pipenv run server
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     5.86ms    2.24ms 126.73ms   99.37%
+    Req/Sec     4.36k   214.90     6.47k    98.08%
+  520322 requests in 30.00s, 49.62MB read
+Requests/sec:  17342.36
+Transfer/sec:      1.65MB
 ```
