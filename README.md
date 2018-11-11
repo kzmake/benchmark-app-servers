@@ -14,6 +14,7 @@
 | [Elixir](#elixir)         | [cowboy + phoenix](#cowboy-phoenix)                           |         `19897.84`  |
 | [Python](#python)         | [bjoern + bottle](#bjoern-bottle)                             |         `17342.36`  |
 | [Elixir](#elixir)         | [cowboy2 + maru](#cowboy2-maru)                               |         `15345.62`  |
+| [Python](#python)         | [gunicorn](#gunicorn)                                         |         `11505.21`  |
 | [Python](#python)         | [uwsgi + flask](#uwsgi-flask)                                 |          `8327.47`  |
 | [Python](#python)         | [gunicorn + flask](#gunicorn-flask)                           |          `7499.01`  |
 | [Python](#python)         | [flask](#flask)                                               |          `1207.28`  |
@@ -357,7 +358,6 @@ Requests/sec:  21216.30
 Transfer/sec:      3.26MB
 ```
 
-
 ## 🚀Python: bjoern + bottle
 
 * [bjoern](https://github.com/jonashaag/bjoern)
@@ -383,4 +383,49 @@ Running 30s test @ http://192.168.10.10:4000/
   520322 requests in 30.00s, 49.62MB read
 Requests/sec:  17342.36
 Transfer/sec:      1.65MB
+```
+
+## 🚀Python: gunicorn
+
+* [gunicorn](https://github.com/benoitc/gunicorn)
+
+### Bootstrap
+
+```bash
+cd servers/gunicorn
+pipenv sync
+pipenv run server
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     8.16ms    1.65ms  41.82ms   96.60%
+    Req/Sec     2.90k   446.99     3.31k    94.90%
+  346116 requests in 30.08s, 51.82MB read
+Requests/sec:  11505.21
+Transfer/sec:      1.72MB
+```
+
+## 🚀Python: gunicorn + meinheld
+
+* [gunicorn](https://github.com/benoitc/gunicorn)
+* [meinheld](https://github.com/mopemope/meinheld)
+
+### Bootstrap
+
+```bash
+cd servers/gunicorn-with-meinheld
+pipenv sync
+pipenv run server
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
 ```
