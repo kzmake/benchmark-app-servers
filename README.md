@@ -2,6 +2,18 @@
 
 [costajob/app-servers](https://github.com/costajob/app-servers) に影響されて自分用に検証してみます
 
+## Benchmarks
+
+### Results
+
+| Language                  | App Server                                                    | Req/sec             |
+| :------------------------ | :------------------------------------------------------------ | ------------------: |
+| [Elixir](#elixir)         | [cowboy + plug](#cowboy-plug)                                 |         `48501.17`  |
+| [Elixir](#elixir)         | [cowboy2 + plug](#cowboy2-plug)                               |         `33547.23`  |
+| [Python](#python)         | [gunicorn + flask + meinheld](#gunicorn-flask-meinheld)       |         `21216.30`  |
+| [Elixir](#elixir)         | [cowboy + phoenix](#cowboy-phoenix)                           |         `19897.84`  |
+| [Python](#python)         | [bjoern + bottle](#bjoern-bottle)                             |         `17342.36`  |
+| [Elixir](#elixir)         | [cowboy2 + maru](#cowboy2-maru)                               |         `15345.62`  |
 
 ## Table of Contents
 
@@ -125,20 +137,6 @@ wrk -t 4 -c 100 -d30s --timeout 2000 http://0.0.0.0:9292
 ```bash
 dstat -tf -cm -C 0,1,2,3,total --noheaders 1
 ```
-
-## Benchmarks
-
-### Results
-
-| Language                  | App Server                                                    | Req/sec           |
-| :------------------------ | :------------------------------------------------------------ | ----------------: |
-| [Elixir](#elixir)         | [cowboy + plug](#cowboy-plug)                                 |         48501.17  |
-| [Elixir](#elixir)         | [cowboy2 + plug](#cowboy2-plug)                               |         33547.23  |
-| [Python](#python)         | [gunicorn + flask + meinheld](#gunicorn-flask-meinheld)       |         21216.30  |
-| [Elixir](#elixir)         | [cowboy + phoenix](#cowboy-phoenix)                           |         19897.84  |
-| [Python](#python)         | [bjoern + bottle](#bjoern-bottle)                             |         17342.36  |
-| [Elixir](#elixir)         | [cowboy2 + maru](#cowboy2-maru)                               |         15345.62  |
-
 
 ## Elixir: cowboy + plug
 
