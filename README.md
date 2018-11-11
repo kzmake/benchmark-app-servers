@@ -14,6 +14,7 @@
 | [Elixir](#elixir)         | [cowboy + phoenix](#cowboy-phoenix)                           |         `19897.84`  |
 | [Python](#python)         | [bjoern + bottle](#bjoern-bottle)                             |         `17342.36`  |
 | [Elixir](#elixir)         | [cowboy2 + maru](#cowboy2-maru)                               |         `15345.62`  |
+| [Python](#python)         | [uwsgi + flask](#uwsgi-flask)                                 |          `8327.47`  |
 | [Python](#python)         | [gunicorn + flask](#gunicorn-flask)                           |          `7499.01`  |
 
 ## 📝Table of Contents
@@ -244,6 +245,34 @@ Running 30s test @ http://192.168.10.10:4000/
   460403 requests in 30.00s, 86.14MB read
 Requests/sec:  15345.62
 Transfer/sec:      2.87MB
+```
+
+## 🚀Python: uwsgi + flask
+
+* [uwsgi](https://github.com/unbit/uwsgi)
+* [flask](https://github.com/pallets/flask)
+
+### Bootstrap
+
+```bash
+cd servers/uwsgi-with-flask
+pipenv sync
+pipenv run server
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    11.42ms    2.80ms  41.85ms   79.96%
+    Req/Sec     2.10k   411.37     2.60k    70.38%
+  250659 requests in 30.10s, 18.17MB read
+  Socket errors: connect 0, read 250625, write 0, timeout 0
+Requests/sec:   8327.47
+Transfer/sec:    618.05KB
 ```
 
 ## 🚀Python: gunicorn + flask
