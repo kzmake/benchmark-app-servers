@@ -8,5 +8,8 @@ flask = "*"
 
 [dev-packages]
 
+[scripts]
+server = "flask run -p 4000 --with-threads"
+
 [requires]
 python_version = "3.7"
