@@ -27,14 +27,14 @@
   * [Disclaimer](#disclaimer)
 * [Languages](#languages)
   * [Elixir](#elixir)
+  * [Python](#python)
 * [Platform](#platform)
   * [App server](#app-server)
   * [Load Server](#load-server)
   * [Settings](#settings)
 * [Tools](#tools)
-  * [Wrk](#wrk)
-  * [Platform](#platform)
-  * [RAM and CPU](#ram-and-cpu)
+  * [wrk](#wrk)
+  * [dstat](#dstat)
   
 ## 👀Scope
 
