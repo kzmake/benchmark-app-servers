@@ -126,12 +126,13 @@ dstat -tf -cm -C 0,1,2,3,total --noheaders 1
 
 ### Results
 
-| Language                  | App Server                                        | Req/sec (local)   |
-| :------------------------ | :------------------------------------------------ | ----------------: |
-| [Elixir](#elixir)         | [Cowboy with Plug](#cowboy-with-plug)             |         48501.17  |
-| [Elixir](#elixir)         | [Cowboy2 with Plug](#cowboy2-with-plug)           |         33547.23  |
-| [Elixir](#elixir)         | [Cowboy with Phoenix](#cowboy-with-phoenix)       |         19897.84  |
-| [Elixir](#elixir)         | [Cowboy2 with Plug](#cowboy2-with-plug)           |         15345.62  |
+| Language                  | App Server                                                    | Req/sec           |
+| :------------------------ | :------------------------------------------------------------ | ----------------: |
+| [Elixir](#elixir)         | [Cowboy + Plug](#cowboy-plug)                                 |         48501.17  |
+| [Elixir](#elixir)         | [Cowboy2 + Plug](#cowboy2-plug)                               |         33547.23  |
+| [Python](#python)         | [Gunicorn + flask + meinheld](#gunicorn-flask-meinheld)       |         21216.30  |
+| [Elixir](#elixir)         | [Cowboy + Phoenix](#cowboy-phoenix)                           |         19897.84  |
+| [Elixir](#elixir)         | [Cowboy2 + Maru](#cowboy2-maru)                               |         15345.62  |
 
 
 ## Elixir: cowboy + plug
@@ -142,6 +143,7 @@ dstat -tf -cm -C 0,1,2,3,total --noheaders 1
 ### Bootstrap
 
 ```bash
+cd servers/cowboy-with-plug
 MIX_ENV=prod mix do deps.get, compile
 MIX_ENV=prod mix run --no-halt
 ```
@@ -168,6 +170,7 @@ Transfer/sec:      9.07MB
 ### Bootstrap
 
 ```bash
+cd servers/cowboy2-with-plug
 MIX_ENV=prod mix do deps.get, compile
 MIX_ENV=prod mix run --no-halt
 ```
@@ -192,6 +195,7 @@ Transfer/sec:      6.28MB
 ### Bootstrap
 
 ```bash
+cd servers/cowboy-with-phoenix
 MIX_ENV=prod mix do deps.get, compile
 PORT=4000 MIX_ENV=prod elixir --detached -S mix phx.server
 ```
@@ -221,6 +225,7 @@ Transfer/sec:      3.72MB
 ### Bootstrap
 
 ```bash
+cd servers/cowboy2-with-maru
 MIX_ENV=prod mix do deps.get, compile
 MIX_ENV=prod mix run --no-halt
 ```
@@ -237,4 +242,32 @@ Running 30s test @ http://192.168.10.10:4000/
   460403 requests in 30.00s, 86.14MB read
 Requests/sec:  15345.62
 Transfer/sec:      2.87MB
+```
+
+## Python: gunicorn + flask + meinheld
+
+* [gunicorn](https://github.com/benoitc/gunicorn)
+* [flask](https://github.com/pallets/flask)
+* [meinheld](https://github.com/mopemope/meinheld)
+
+### Bootstrap
+
+```bash
+cd servers/gunicorn-with-flask-and-meinheld
+pipenv sync
+pipenv run server
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     4.76ms    1.84ms  45.72ms   91.67%
+    Req/Sec     5.34k   518.99    20.07k    96.84%
+  638610 requests in 30.10s, 98.05MB read
+Requests/sec:  21216.30
+Transfer/sec:      3.26MB
 ```
