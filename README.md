@@ -8,6 +8,7 @@
 
 | Language                  | App Server                                                    | Req/sec             |
 | :------------------------ | :------------------------------------------------------------ | ------------------: |
+| [Python](#python)         | [gunicorn + meinheld](#gunicorn-meinheld)                     |        `142269.85`  |
 | [Elixir](#elixir)         | [cowboy + plug](#cowboy-plug)                                 |         `48501.17`  |
 | [Elixir](#elixir)         | [cowboy2 + plug](#cowboy2-plug)                               |         `33547.23`  |
 | [Python](#python)         | [gunicorn + flask + meinheld](#gunicorn-flask-meinheld)       |         `21216.30`  |
@@ -428,4 +429,12 @@ pipenv run server
 
 ```bash
 # wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   714.05us    0.87ms  41.18ms   99.85%
+    Req/Sec    35.81k     0.97k   47.65k    93.68%
+  4282263 requests in 30.10s, 657.51MB read
+Requests/sec: 142269.85
+Transfer/sec:     21.84MB
 ```
