@@ -2,7 +2,7 @@
 
 [costajob/app-servers](https://github.com/costajob/app-servers) に影響されて自分用に検証してみます
 
-## Benchmarks
+## 🔥Benchmarks
 
 ### Results
 
@@ -16,7 +16,7 @@
 | [Elixir](#elixir)         | [cowboy2 + maru](#cowboy2-maru)                               |         `15345.62`  |
 | [Python](#python)         | [gunicorn + flask](#gunicorn-flask)                           |          `7499.01`  |
 
-## Table of Contents
+## 📝Table of Contents
 
 * [Scope](#scope)
   * [Server](#server)
@@ -32,7 +32,7 @@
   * [Platform](#platform)
   * [RAM and CPU](#ram-and-cpu)
   
-## Scope
+## 👀Scope
 
 さまざまな言語実装をリクエストの処理能力に焦点を当ててベンチマークすることが目的です。
 
@@ -47,7 +47,7 @@
 言語の宣伝や批判を行うものではありません。
 言語やアプリケーションサーバー、フレームワーク毎にそれぞれ優れている点があり、パフォーマンスだけに基づいて選ぶべきではないかと思います。
 
-## Languages
+## 🌐Languages
 
 ### Elixir
 
@@ -58,7 +58,7 @@
 
 * Python 3.7.1
 
-## Platform
+## 🌱Platform
 
 下記の環境を検証に利用。
 
@@ -115,7 +115,7 @@ session    required     pam_limits.so
 session    required     pam_limits.so
 ```
 
-## Tools
+## ⚙️Tools
 
 * [wrk](https://github.com/wg/wrk)
 
@@ -137,7 +137,7 @@ wrk -t 4 -c 100 -d30s --timeout 2000 http://0.0.0.0:9292
 dstat -tf -cm -C 0,1,2,3,total --noheaders 1
 ```
 
-## Elixir: cowboy + plug
+## 🚀Elixir: cowboy + plug
 
 * [cowboy](https://github.com/ninenines/cowboy)
 * [plug](https://github.com/elixir-plug/plug)
@@ -164,7 +164,7 @@ Requests/sec:  48501.17
 Transfer/sec:      9.07MB
 ```
 
-## Elixir: cowboy2 + plug
+## 🚀Elixir: cowboy2 + plug
 
 * [cowboy](https://github.com/ninenines/cowboy)
 * [plug](https://github.com/elixir-plug/plug)
@@ -192,7 +192,7 @@ Transfer/sec:      6.28MB
 ```
 
 
-## Elixir: cowboy + phoenix
+## 🚀Elixir: cowboy + phoenix
 
 ### Bootstrap
 
@@ -219,7 +219,7 @@ Requests/sec:  19897.84
 Transfer/sec:      3.72MB
 ```
 
-## Elixir: cowboy2 + maru
+## 🚀Elixir: cowboy2 + maru
 
 * [cowboy](https://github.com/ninenines/cowboy)
 * [maru](https://github.com/elixir-maru/maru)
@@ -246,7 +246,7 @@ Requests/sec:  15345.62
 Transfer/sec:      2.87MB
 ```
 
-## Python: gunicorn + flask
+## 🚀Python: gunicorn + flask
 
 * [gunicorn](https://github.com/benoitc/gunicorn)
 * [flask](https://github.com/pallets/flask)
@@ -273,7 +273,7 @@ Requests/sec:   7499.01
 Transfer/sec:      1.12MB
 ```
 
-## Python: gunicorn + flask + meinheld
+## 🚀Python: gunicorn + flask + meinheld
 
 * [gunicorn](https://github.com/benoitc/gunicorn)
 * [flask](https://github.com/pallets/flask)
@@ -302,7 +302,7 @@ Transfer/sec:      3.26MB
 ```
 
 
-## Python: bjoern + bottle
+## 🚀Python: bjoern + bottle
 
 * [bjoern](https://github.com/jonashaag/bjoern)
 * [bottle](https://github.com/bottlepy/bottle)
