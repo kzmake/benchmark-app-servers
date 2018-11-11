@@ -16,6 +16,7 @@
 | [Elixir](#elixir)         | [cowboy2 + maru](#cowboy2-maru)                               |         `15345.62`  |
 | [Python](#python)         | [uwsgi + flask](#uwsgi-flask)                                 |          `8327.47`  |
 | [Python](#python)         | [gunicorn + flask](#gunicorn-flask)                           |          `7499.01`  |
+| [Python](#python)         | [flask](#flask)                                               |          `1207.28`  |
 
 ## 📝Table of Contents
 
@@ -245,6 +246,32 @@ Running 30s test @ http://192.168.10.10:4000/
   460403 requests in 30.00s, 86.14MB read
 Requests/sec:  15345.62
 Transfer/sec:      2.87MB
+```
+
+## 🚀Python: flask
+
+* [flask](https://github.com/pallets/flask)
+
+### Bootstrap
+
+```bash
+cd servers/flask
+pipenv sync
+pipenv run server
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    81.80ms    3.59ms 121.52ms   93.11%
+    Req/Sec   303.11     43.47   460.00     56.42%
+  36258 requests in 30.03s, 5.22MB read
+Requests/sec:   1207.28
+Transfer/sec:    178.04KB
 ```
 
 ## 🚀Python: uwsgi + flask
