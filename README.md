@@ -14,6 +14,7 @@
 | [Elixir](#elixir)         | [cowboy + phoenix](#cowboy-phoenix)                           |         `19897.84`  |
 | [Python](#python)         | [bjoern + bottle](#bjoern-bottle)                             |         `17342.36`  |
 | [Elixir](#elixir)         | [cowboy2 + maru](#cowboy2-maru)                               |         `15345.62`  |
+| [Python](#python)         | [gunicorn + flask](#gunicorn-flask)                           |          `7499.01`  |
 
 ## Table of Contents
 
@@ -30,8 +31,6 @@
   * [Wrk](#wrk)
   * [Platform](#platform)
   * [RAM and CPU](#ram-and-cpu)
-* [Benchmarks](#benchmarks)
-  * [Results](#results)
   
 ## Scope
 
@@ -247,6 +246,33 @@ Requests/sec:  15345.62
 Transfer/sec:      2.87MB
 ```
 
+## Python: gunicorn + flask
+
+* [gunicorn](https://github.com/benoitc/gunicorn)
+* [flask](https://github.com/pallets/flask)
+
+### Bootstrap
+
+```bash
+cd servers/gunicorn-with-flask
+pipenv sync
+pipenv run server
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    12.79ms    1.91ms  55.56ms   97.01%
+    Req/Sec     1.89k   158.63     1.99k    95.08%
+  225575 requests in 30.08s, 33.77MB read
+Requests/sec:   7499.01
+Transfer/sec:      1.12MB
+```
+
 ## Python: gunicorn + flask + meinheld
 
 * [gunicorn](https://github.com/benoitc/gunicorn)
@@ -274,6 +300,7 @@ Running 30s test @ http://192.168.10.10:4000/
 Requests/sec:  21216.30
 Transfer/sec:      3.26MB
 ```
+
 
 ## Python: bjoern + bottle
 
