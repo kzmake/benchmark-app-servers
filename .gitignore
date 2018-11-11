@@ -32,3 +32,5 @@ nim_server
 # Jetbrains IDEA
 .idea/
 *.iml
+
+__pycache__/
