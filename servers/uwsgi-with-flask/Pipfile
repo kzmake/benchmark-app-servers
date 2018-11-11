@@ -5,8 +5,12 @@ name = "pypi"
 
 [packages]
 flask = "*"
+uwsgi = "*"
 
 [dev-packages]
+
+[scripts]
+server ="uwsgi -p 4 --http 0.0.0.0:4000 --module app --callable app"
 
 [requires]
 python_version = "3.7"
