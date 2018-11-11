@@ -9,6 +9,7 @@
 | Language                  | App Server                                                    | Req/sec             |
 | :------------------------ | :------------------------------------------------------------ | ------------------: |
 | [Python](#python)         | [gunicorn + meinheld](#gunicorn-meinheld)                     |        `142269.85`  |
+| [Elixir](#elixir)         | [cowboy](#cowboy)                                             |         `62189.22`  |
 | [Elixir](#elixir)         | [cowboy + plug](#cowboy-plug)                                 |         `48501.17`  |
 | [Elixir](#elixir)         | [cowboy2 + plug](#cowboy2-plug)                               |         `33547.23`  |
 | [Python](#python)         | [gunicorn + flask + meinheld](#gunicorn-flask-meinheld)       |         `21216.30`  |
@@ -195,6 +196,31 @@ Requests/sec:  33547.23
 Transfer/sec:      6.28MB
 ```
 
+## 🚀Elixir: cowboy
+
+* [cowboy](https://github.com/ninenines/cowboy)
+
+### Bootstrap
+
+```bash
+cd servers/cowboy
+MIX_ENV=prod mix do deps.get, compile
+MIX_ENV=prod mix run --no-halt
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.69ms    1.55ms  45.41ms   93.23%
+    Req/Sec    15.66k     1.60k   50.82k    86.01%
+  1871909 requests in 30.10s, 230.63MB read
+Requests/sec:  62189.22
+Transfer/sec:      7.66MB
+```
 
 ## 🚀Elixir: cowboy + phoenix
 
