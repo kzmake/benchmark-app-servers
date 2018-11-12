@@ -1,0 +1,9 @@
+[package]
+name = "iron"
+version = "0.1.0"
+authors = ["Kazuki Iwata <kazu.0516.k0n0f@gmail.com>"]
+
+[dependencies]
+
+[dependencies.iron]
+version = "*"

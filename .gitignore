@@ -13,10 +13,14 @@ erl_crash.dump
 /servers/**/db
 mix.lock
 
+# Rust
+**/target/
+Cargo.lock
+**/*.rs.bk
 
 # Python
-/servers/__pycache__
-/servers/*.pyc
+__pycache__
+*.pyc
 
 # Crystal
 *.dwarf
