@@ -9,6 +9,7 @@
 | Language                  | App Server                                                    | Req/sec             |
 | :------------------------ | :------------------------------------------------------------ | ------------------: |
 | [Python](#python)         | [gunicorn + meinheld](#gunicorn-meinheld)                     |        `142269.85`  |
+| [Rust](#rust)             | [iron](#iron)                                                 |         `79042.21`  |
 | [Elixir](#elixir)         | [cowboy](#cowboy)                                             |         `62189.22`  |
 | [Elixir](#elixir)         | [cowboy + plug](#cowboy-plug)                                 |         `48501.17`  |
 | [Elixir](#elixir)         | [cowboy2 + plug](#cowboy2-plug)                               |         `33547.23`  |
@@ -490,4 +491,29 @@ Running 30s test @ http://192.168.10.10:4000/
   4282263 requests in 30.10s, 657.51MB read
 Requests/sec: 142269.85
 Transfer/sec:     21.84MB
+```
+
+## 🚀Rust: iron
+
+* [iron](https://github.com/iron/iron)
+
+### Bootstrap
+
+```bash
+cd servers/iron
+cargo run --release
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   410.29us  746.75us  40.81ms   99.88%
+    Req/Sec    39.72k     7.50k   48.68k    62.96%
+  2379133 requests in 30.10s, 258.66MB read
+Requests/sec:  79042.21
+Transfer/sec:      8.59MB
 ```
