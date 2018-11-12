@@ -9,6 +9,7 @@
 | Language                  | App Server                                                    | Req/sec             |
 | :------------------------ | :------------------------------------------------------------ | ------------------: |
 | [Python](#python)         | [gunicorn + meinheld](#gunicorn-meinheld)                     |        `142269.85`  |
+| [Golang](#golang)         | [net/http](#net-http)                                         |        `112160.14`  |
 | [Rust](#rust)             | [iron](#iron)                                                 |         `79042.21`  |
 | [Elixir](#elixir)         | [cowboy](#cowboy)                                             |         `62189.22`  |
 | [Elixir](#elixir)         | [cowboy + plug](#cowboy-plug)                                 |         `48501.17`  |
@@ -516,4 +517,30 @@ Running 30s test @ http://192.168.10.10:4000/
   2379133 requests in 30.10s, 258.66MB read
 Requests/sec:  79042.21
 Transfer/sec:      8.59MB
+```
+
+## 🚀Go: net/http
+
+* [net/http](https://golang.org/pkg/net/http/)
+
+### Bootstrap
+
+```bash
+cd servers/go-net-http
+go build main.go
+./main
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     0.91ms  739.03us  34.46ms   96.93%
+    Req/Sec    28.25k     1.32k   58.73k    91.59%
+  3375936 requests in 30.10s, 412.10MB read
+Requests/sec: 112160.14
+Transfer/sec:     13.69MB
 ```
