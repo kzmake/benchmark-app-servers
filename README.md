@@ -8,6 +8,7 @@
 
 | Language                  | App Server                                                    | Req/sec             |
 | :------------------------ | :------------------------------------------------------------ | ------------------: |
+| [Nim](#nim)               | [jester](#jester)                                             |        `180562.05`  |
 | [Golang](#golang)         | [fasthttp](#fasthttp)                                         |        `178742.38`  |
 | [Python](#python)         | [gunicorn + meinheld](#gunicorn-meinheld)                     |        `142269.85`  |
 | [Golang](#golang)         | [net/http](#net-http)                                         |        `112160.14`  |
@@ -598,4 +599,30 @@ Running 30s test @ http://192.168.10.10:4000/
   5380177 requests in 30.10s, 749.12MB read
 Requests/sec: 178742.38
 Transfer/sec:     24.89MB
+```
+
+## 🚀Nim: jester
+   
+* [jester](https://github.com/dom96/jester)
+
+### Boostrap
+
+```bash
+cd servers/jester
+nim c -d:release --threads:on src/app.nim
+./src/app
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   560.12us    0.86ms  40.91ms   99.85%
+    Req/Sec    45.45k     1.82k   59.51k    83.94%
+  5434775 requests in 30.10s, 751.54MB read
+Requests/sec: 180562.05
+Transfer/sec:     24.97MB
 ```
