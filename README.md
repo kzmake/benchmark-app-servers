@@ -8,6 +8,7 @@
 
 | Language                  | App Server                                                    | Req/sec             |
 | :------------------------ | :------------------------------------------------------------ | ------------------: |
+| [Golang](#golang)         | [fasthttp](#fasthttp)                                         |        `178742.38`  |
 | [Python](#python)         | [gunicorn + meinheld](#gunicorn-meinheld)                     |        `142269.85`  |
 | [Golang](#golang)         | [net/http](#net-http)                                         |        `112160.14`  |
 | [Rust](#rust)             | [iron](#iron)                                                 |         `79042.21`  |
@@ -528,7 +529,7 @@ Transfer/sec:      8.59MB
 ```bash
 cd servers/go-net-http
 go build main.go
-./main
+./go-net-http
 ```
 
 ### Rps result
@@ -543,4 +544,31 @@ Running 30s test @ http://192.168.10.10:4000/
   3375936 requests in 30.10s, 412.10MB read
 Requests/sec: 112160.14
 Transfer/sec:     13.69MB
+```
+
+
+## 🚀Go: net/http
+
+* [fasthttp](https://github.com/valyala/fasthttp)
+
+### Bootstrap
+
+```bash
+cd servers/go-fasthttp
+go build main.go
+./go-fasthttp
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   604.77us    1.32ms  41.20ms   99.64%
+    Req/Sec    44.92k     1.78k   47.38k    96.10%
+  5380177 requests in 30.10s, 749.12MB read
+Requests/sec: 178742.38
+Transfer/sec:     24.89MB
 ```
