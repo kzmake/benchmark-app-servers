@@ -19,6 +19,7 @@
 | [Python](#python)         | [gunicorn](#gunicorn)                                         |         `11505.21`  |
 | [Python](#python)         | [uwsgi + flask](#uwsgi-flask)                                 |          `8327.47`  |
 | [Python](#python)         | [gunicorn + flask](#gunicorn-flask)                           |          `7499.01`  |
+| [Python](#python)         | [bottle](#bottle)                                             |          `2318.08`  |
 | [Python](#python)         | [flask](#flask)                                               |          `1207.28`  |
 
 ## 📝Table of Contents
@@ -383,6 +384,32 @@ Running 30s test @ http://192.168.10.10:4000/
   638610 requests in 30.10s, 98.05MB read
 Requests/sec:  21216.30
 Transfer/sec:      3.26MB
+```
+
+## 🚀Python: bottle
+
+* [bottle](https://github.com/bottlepy/bottle)
+
+### Bootstrap
+
+```bash
+cd servers/bottle
+pipenv sync
+pipenv run server
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   547.07ms    2.89s   26.72s    96.07%
+    Req/Sec   626.82    291.02     1.74k    75.02%
+  69580 requests in 30.02s, 10.02MB read
+Requests/sec:   2318.08
+Transfer/sec:    341.83KB
 ```
 
 ## 🚀Python: bjoern + bottle
