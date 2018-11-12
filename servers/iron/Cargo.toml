@@ -3,6 +3,17 @@ name = "iron"
 version = "0.1.0"
 authors = ["Kazuki Iwata <kazu.0516.k0n0f@gmail.com>"]
 
+[profile.release]
+opt-level = 3
+debug = false
+rpath = false
+lto = true
+debug-assertions = false
+codegen-units = 16
+panic = 'unwind'
+incremental = false
+overflow-checks = false
+
 [dependencies]
 
 [dependencies.iron]
