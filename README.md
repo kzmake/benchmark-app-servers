@@ -1,31 +1,35 @@
 # はじめに
 
-[costajob/app-servers](https://github.com/costajob/app-servers) に影響されて自分用に検証してみます
+* [TechEmpower/FrameworkBenchmarks](https://github.com/TechEmpower/FrameworkBenchmarks)
+* [costajob/app-servers](https://github.com/costajob/app-servers)
+
+に影響されて自分用に検証してみます
+
 
 ## 🔥Benchmarks
 
 ### Results
 
-| Language                  | App Server                                                    | Req/sec             |
-| :------------------------ | :------------------------------------------------------------ | ------------------: |
-| [Nim](#nim)               | [jester](#jester)                                             |        `180562.05`  |
-| [Golang](#golang)         | [fasthttp](#fasthttp)                                         |        `178742.38`  |
-| [Python](#python)         | [gunicorn + meinheld](#gunicorn-meinheld)                     |        `142269.85`  |
-| [Golang](#golang)         | [net/http](#net-http)                                         |        `112160.14`  |
-| [Rust](#rust)             | [iron](#iron)                                                 |         `79042.21`  |
-| [Elixir](#elixir)         | [cowboy](#cowboy)                                             |         `62189.22`  |
-| [Rust](#rust)             | [rocket](#rocket)                                             |         `50183.59`  |
-| [Elixir](#elixir)         | [cowboy + plug](#cowboy-plug)                                 |         `48501.17`  |
-| [Elixir](#elixir)         | [cowboy2 + plug](#cowboy2-plug)                               |         `33547.23`  |
-| [Python](#python)         | [gunicorn + flask + meinheld](#gunicorn-flask-meinheld)       |         `21216.30`  |
-| [Elixir](#elixir)         | [cowboy + phoenix](#cowboy-phoenix)                           |         `19897.84`  |
-| [Python](#python)         | [bjoern + bottle](#bjoern-bottle)                             |         `17342.36`  |
-| [Elixir](#elixir)         | [cowboy2 + maru](#cowboy2-maru)                               |         `15345.62`  |
-| [Python](#python)         | [gunicorn](#gunicorn)                                         |         `11505.21`  |
-| [Python](#python)         | [uwsgi + flask](#uwsgi-flask)                                 |          `8327.47`  |
-| [Python](#python)         | [gunicorn + flask](#gunicorn-flask)                           |          `7499.01`  |
-| [Python](#python)         | [bottle](#bottle)                                             |          `2318.08`  |
-| [Python](#python)         | [flask](#flask)                                               |          `1207.28`  |
+| Language                  | App Server                                                         | Req/sec             |
+| :------------------------ | :----------------------------------------------------------------- | ------------------: |
+| [Nim](#nim)               | [jester](#nim-jester)                                              |        `180562.05`  |
+| [Golang](#golang)         | [fasthttp](#go-fasthttp)                                           |        `178742.38`  |
+| [Python](#python)         | [gunicorn + meinheld](#python-gunicorn--meinheld)                  |        `142269.85`  |
+| [Golang](#golang)         | [net/http](#go-nethttp)                                            |        `112160.14`  |
+| [Rust](#rust)             | [iron](#rust-iron)                                                 |         `79042.21`  |
+| [Elixir](#elixir)         | [cowboy](#elixir-cowboy)                                           |         `62189.22`  |
+| [Rust](#rust)             | [rocket](#rust-rocket)                                             |         `50183.59`  |
+| [Elixir](#elixir)         | [cowboy + plug](#elixir-cowboy--plug)                              |         `48501.17`  |
+| [Elixir](#elixir)         | [cowboy2 + plug](#elixir-cowboy2--plug)                            |         `33547.23`  |
+| [Python](#python)         | [gunicorn + flask + meinheld](#python-gunicorn--flask--meinheld)   |         `21216.30`  |
+| [Elixir](#elixir)         | [cowboy + phoenix](#elixir-cowboy--phoenix)                        |         `19897.84`  |
+| [Python](#python)         | [bjoern + bottle](#python-bjoern--bottle)                          |         `17342.36`  |
+| [Elixir](#elixir)         | [cowboy2 + maru](#elixir-cowboy2--maru)                            |         `15345.62`  |
+| [Python](#python)         | [gunicorn](#python-gunicorn)                                       |         `11505.21`  |
+| [Python](#python)         | [uwsgi + flask](#python-uwsgi--flask)                              |          `8327.47`  |
+| [Python](#python)         | [gunicorn + flask](#python-gunicorn--flask)                        |          `7499.01`  |
+| [Python](#python)         | [bottle](#python-bottle)                                           |          `2318.08`  |
+| [Python](#python)         | [flask](#python-flask)                                             |          `1207.28`  |
 
 ## 📝Table of Contents
 
@@ -35,6 +39,9 @@
 * [Languages](#languages)
   * [Elixir](#elixir)
   * [Python](#python)
+  * [Nim](#nim)
+  * [Golang](#golang)
+  * [Rust](#rust)
 * [Platform](#platform)
   * [App server](#app-server)
   * [Load Server](#load-server)
@@ -56,7 +63,7 @@
 ### Disclaimer
 
 言語の宣伝や批判を行うものではありません。
-言語やアプリケーションサーバー、フレームワーク毎にそれぞれ優れている点があり、パフォーマンスだけに基づいて選ぶべきではないかと思います。
+言語やアプリケーションサーバー、フレームワーク毎にそれぞれ優れている点があり、パフォーマンスだけに基づいて選ぶべきではないと思います。
 
 ## 🌐Languages
 
@@ -68,6 +75,18 @@
 ### Python
 
 * Python 3.7.1
+
+### Nim
+
+* Nim 0.19.0
+
+### Golang
+
+* Golang 1.11.2
+
+### Rust
+
+* Rust 1.30.1
 
 ## 🌱Platform
 
@@ -575,7 +594,7 @@ Transfer/sec:     13.69MB
 ```
 
 
-## 🚀Go: net/http
+## 🚀Go: fasthttp
 
 * [fasthttp](https://github.com/valyala/fasthttp)
 
