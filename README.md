@@ -13,6 +13,7 @@
 | [Golang](#golang)         | [net/http](#net-http)                                         |        `112160.14`  |
 | [Rust](#rust)             | [iron](#iron)                                                 |         `79042.21`  |
 | [Elixir](#elixir)         | [cowboy](#cowboy)                                             |         `62189.22`  |
+| [Rust](#rust)             | [rocket](#rocket)                                             |         `50183.59`  |
 | [Elixir](#elixir)         | [cowboy + plug](#cowboy-plug)                                 |         `48501.17`  |
 | [Elixir](#elixir)         | [cowboy2 + plug](#cowboy2-plug)                               |         `33547.23`  |
 | [Python](#python)         | [gunicorn + flask + meinheld](#gunicorn-flask-meinheld)       |         `21216.30`  |
@@ -518,6 +519,32 @@ Running 30s test @ http://192.168.10.10:4000/
   2379133 requests in 30.10s, 258.66MB read
 Requests/sec:  79042.21
 Transfer/sec:      8.59MB
+```
+
+## 🚀Rust: rocket
+
+* [rocket](https://rocket.rs)
+
+### Bootstrap
+
+```bash
+cd servers/rocket
+cargo run --release
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.05ms  288.93us   7.84ms   92.74%
+    Req/Sec    12.61k   387.69    13.32k    70.68%
+  1510538 requests in 30.10s, 207.44MB read
+  Socket errors: connect 0, read 1510538, write 0, timeout 0
+Requests/sec:  50183.59
+Transfer/sec:      6.89MB
 ```
 
 ## 🚀Go: net/http
