@@ -31,6 +31,7 @@
 | [Python](#python)         | [uwsgi + flask](#python-uwsgi--flask)                              |          `8327.47`  |
 | [Python](#python)         | [gunicorn + flask](#python-gunicorn--flask)                        |          `7499.01`  |
 | [Python](#python)         | [bottle](#python-bottle)                                           |          `2318.08`  |
+| [Ruby](#ruby)             | [Ruby on Rails 5.x + puma](#ruby-rails-5x--puma)                   |          `2134.67`  |
 | [Python](#python)         | [flask](#python-flask)                                             |          `1207.28`  |
 
 ## 📝Table of Contents
@@ -45,6 +46,7 @@
   * [Golang](#golang)
   * [Rust](#rust)
   * [Scala](#scala)
+  * [Ruby](#ruby)
 * [Platform](#platform)
   * [App server](#app-server)
   * [Load Server](#load-server)
@@ -95,6 +97,10 @@
 
 * Scala 2.12.7
 * sbt 1.2.6
+
+### Ruby
+
+* Ruby 2.5.1
 
 
 ## 🌱Platform
@@ -704,4 +710,31 @@ Running 30s test @ http://192.168.10.10:4000/
   1643383 requests in 30.00s, 200.61MB read
 Requests/sec:  54774.22
 Transfer/sec:      6.69MB
+```
+
+
+## 🚀Ruby: Rails 5.x + puma
+
+* [Ruby on Rails](https://rubyonrails.org/)
+* [puma](http://puma.io)
+
+### Bootstrap
+
+```bash
+cd servers/rails-puma
+rails server --environment production
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     9.35ms    6.72ms  99.99ms   78.65%
+    Req/Sec     1.07k   658.39     2.24k    54.50%
+  64117 requests in 30.04s, 16.08MB read
+Requests/sec:   2134.67
+Transfer/sec:    548.26KB
 ```
