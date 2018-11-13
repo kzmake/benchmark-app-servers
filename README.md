@@ -23,6 +23,7 @@
 | [Rust](#rust)             | [rocket](#rust-rocket)                                             |         `50183.59`  |
 | [Elixir](#elixir)         | [cowboy + plug](#elixir-cowboy--plug)                              |         `48501.17`  |
 | [Elixir](#elixir)         | [cowboy2 + plug](#elixir-cowboy2--plug)                            |         `33547.23`  |
+| [Ballerina](#ballerina)   | [Ballerina](#ballerina-pure)                                       |         `26570.28`  |
 | [Python](#python)         | [gunicorn + flask + meinheld](#python-gunicorn--flask--meinheld)   |         `21216.30`  |
 | [Elixir](#elixir)         | [cowboy + phoenix](#elixir-cowboy--phoenix)                        |         `19897.84`  |
 | [Python](#python)         | [bjoern + bottle](#python-bjoern--bottle)                          |         `17342.36`  |
@@ -48,6 +49,7 @@
   * [Rust](#rust)
   * [Scala](#scala)
   * [Ruby](#ruby)
+  * [Ballerina](#ballerina)
 * [Platform](#platform)
   * [App server](#app-server)
   * [Load Server](#load-server)
@@ -102,6 +104,11 @@
 ### Ruby
 
 * Ruby 2.5.1
+
+
+### Ballerina
+
+* Ballerina 0.983.0
 
 
 ## 🌱Platform
@@ -766,3 +773,31 @@ Running 30s test @ http://192.168.10.10:4000/
 Requests/sec:   3748.68
 Transfer/sec:      1.00MB
 ```
+
+
+## 🚀Ballerina: pure
+
+* [Ballerina](https://ballerina.io)
+
+### Bootstrap
+
+```bash
+cd servers/ballerina
+ballerina build hello_service.bal
+ballerina run target/hello_service.balx
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     7.18ms   10.93ms 111.40ms   88.80%
+    Req/Sec     6.69k   523.04    10.85k    72.80%
+  799758 requests in 30.10s, 108.30MB read
+Requests/sec:  26570.28
+Transfer/sec:      3.60MB
+```
+
