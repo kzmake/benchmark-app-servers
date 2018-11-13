@@ -30,6 +30,7 @@
 | [Python](#python)         | [gunicorn](#python-gunicorn)                                       |         `11505.21`  |
 | [Python](#python)         | [uwsgi + flask](#python-uwsgi--flask)                              |          `8327.47`  |
 | [Python](#python)         | [gunicorn + flask](#python-gunicorn--flask)                        |          `7499.01`  |
+| [Ruby](#ruby)             | [Ruby on Rails 5.x + unicorn](#ruby-rails-5x--unicorn)             |          `3748.68`  |
 | [Python](#python)         | [bottle](#python-bottle)                                           |          `2318.08`  |
 | [Ruby](#ruby)             | [Ruby on Rails 5.x + puma](#ruby-rails-5x--puma)                   |          `2134.67`  |
 | [Python](#python)         | [flask](#python-flask)                                             |          `1207.28`  |
@@ -737,4 +738,31 @@ Running 30s test @ http://192.168.10.10:4000/
   64117 requests in 30.04s, 16.08MB read
 Requests/sec:   2134.67
 Transfer/sec:    548.26KB
+```
+
+## 🚀Ruby: Rails 5.x + unicorn
+
+* [Ruby on Rails](https://rubyonrails.org/)
+* [unicorn](https://bogomips.org/unicorn/)
+
+### Bootstrap
+
+```bash
+cd servers/rails-puma
+bundle exec unicorn_rails -c config/unicorn.rb --env production
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    26.24ms  691.46us  41.35ms   87.10%
+    Req/Sec     0.94k    34.01     1.01k    75.00%
+  112502 requests in 30.01s, 30.15MB read
+  Socket errors: connect 0, read 112502, write 0, timeout 0
+Requests/sec:   3748.68
+Transfer/sec:      1.00MB
 ```
