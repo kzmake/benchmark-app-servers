@@ -1,0 +1,5 @@
+# Routes
+# ~~~~
+
+GET        /        controllers.HelloWorldController.plaintext
+
