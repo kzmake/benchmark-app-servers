@@ -19,6 +19,7 @@
 | [Golang](#golang)         | [net/http](#go-nethttp)                                            |        `112160.14`  |
 | [Rust](#rust)             | [iron](#rust-iron)                                                 |         `79042.21`  |
 | [Elixir](#elixir)         | [cowboy](#elixir-cowboy)                                           |         `62189.22`  |
+| [Scala](#scala)           | [Play Framework 2.x + netty](#scala-play-framework-2x--netty)      |         `54774.22`  |
 | [Rust](#rust)             | [rocket](#rust-rocket)                                             |         `50183.59`  |
 | [Elixir](#elixir)         | [cowboy + plug](#elixir-cowboy--plug)                              |         `48501.17`  |
 | [Elixir](#elixir)         | [cowboy2 + plug](#elixir-cowboy2--plug)                            |         `33547.23`  |
@@ -43,6 +44,7 @@
   * [Nim](#nim)
   * [Golang](#golang)
   * [Rust](#rust)
+  * [Scala](#scala)
 * [Platform](#platform)
   * [App server](#app-server)
   * [Load Server](#load-server)
@@ -88,6 +90,12 @@
 ### Rust
 
 * Rust 1.30.1
+
+### Scala
+
+* Scala 2.12.7
+* sbt 1.2.6
+
 
 ## 🌱Platform
 
@@ -670,4 +678,30 @@ Running 30s test @ http://192.168.10.10:4000/
   5477391 requests in 30.10s, 663.40MB read
 Requests/sec: 181978.18
 Transfer/sec:     22.04MB
+```
+
+## 🚀Scala: Play Framework 2.x + netty
+
+* [Play Framework 2.x](https://www.playframework.com)
+* [Netty](https://netty.io)
+
+### Bootstrap
+
+```bash
+cd servers/play2-netty
+sbt "start -Dhttp.port=4000"
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.22ms    2.53ms  62.23ms   92.11%
+    Req/Sec    13.76k     0.96k   16.61k    82.50%
+  1643383 requests in 30.00s, 200.61MB read
+Requests/sec:  54774.22
+Transfer/sec:      6.69MB
 ```
