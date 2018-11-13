@@ -12,6 +12,7 @@
 
 | Language                  | App Server                                                         | Req/sec             |
 | :------------------------ | :----------------------------------------------------------------- | ------------------: |
+| [Rust](#rust)             | [hyper](#rust-hyper)                                               |        `181978.18`  |
 | [Nim](#nim)               | [jester](#nim-jester)                                              |        `180562.05`  |
 | [Golang](#golang)         | [fasthttp](#go-fasthttp)                                           |        `178742.38`  |
 | [Python](#python)         | [gunicorn + meinheld](#python-gunicorn--meinheld)                  |        `142269.85`  |
@@ -644,4 +645,29 @@ Running 30s test @ http://192.168.10.10:4000/
   5434775 requests in 30.10s, 751.54MB read
 Requests/sec: 180562.05
 Transfer/sec:     24.97MB
+```
+
+## 🚀Rust: hyper
+
+* [hyper](https://hyper.rs)
+
+### Bootstrap
+
+```bash
+cd servers/hyper
+cargo run --release
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   551.41us    0.86ms  40.94ms   99.84%
+    Req/Sec    45.84k     1.34k   65.29k    90.26%
+  5477391 requests in 30.10s, 663.40MB read
+Requests/sec: 181978.18
+Transfer/sec:     22.04MB
 ```
