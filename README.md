@@ -18,6 +18,7 @@
 | [Python](#python)         | [gunicorn + meinheld](#python-gunicorn--meinheld)                  |        `142269.85`  |
 | [Golang](#golang)         | [net/http](#go-nethttp)                                            |        `112160.14`  |
 | [Golang](#golang)         | [echo](#go-echo)                                                   |        `107365.95`  |
+| [Golang](#golang)         | [gin](#go-gin)                                                    |        `102053.41`  |
 | [Rust](#rust)             | [iron](#rust-iron)                                                 |         `79042.21`  |
 | [Elixir](#elixir)         | [cowboy](#elixir-cowboy)                                           |         `62189.22`  |
 | [Scala](#scala)           | [Play Framework 2.x + netty](#scala-play-framework-2x--netty)      |         `54774.22`  |
@@ -826,4 +827,30 @@ Running 30s test @ http://192.168.10.10:4000/
   3231644 requests in 30.10s, 394.49MB read
 Requests/sec: 107365.95
 Transfer/sec:     13.11MB
+```
+
+## 🚀Go: gin
+
+* [gin](https://github.com/gin-gonic/gin)
+
+### Bootstrap
+
+```bash
+cd servers/gin
+go build
+./gin
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     0.99ms  480.82us  18.88ms   80.58%
+    Req/Sec    25.66k     0.97k   32.58k    78.72%
+  3071775 requests in 30.10s, 374.97MB read
+Requests/sec: 102053.41
+Transfer/sec:     12.46MB
 ```
