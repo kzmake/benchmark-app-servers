@@ -17,6 +17,7 @@
 | [Golang](#golang)         | [fasthttp](#go-fasthttp)                                           |        `178742.38`  |
 | [Python](#python)         | [gunicorn + meinheld](#python-gunicorn--meinheld)                  |        `142269.85`  |
 | [Golang](#golang)         | [net/http](#go-nethttp)                                            |        `112160.14`  |
+| [Golang](#golang)         | [echo](#go-echo)                                                   |        `107365.95`  |
 | [Rust](#rust)             | [iron](#rust-iron)                                                 |         `79042.21`  |
 | [Elixir](#elixir)         | [cowboy](#elixir-cowboy)                                           |         `62189.22`  |
 | [Scala](#scala)           | [Play Framework 2.x + netty](#scala-play-framework-2x--netty)      |         `54774.22`  |
@@ -801,3 +802,28 @@ Requests/sec:  26570.28
 Transfer/sec:      3.60MB
 ```
 
+## 🚀Go: echo
+
+* [echo](https://github.com/labstack/echo)
+
+### Bootstrap
+
+```bash
+cd servers/echo
+go build
+./echo
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     0.95ms  763.11us  34.54ms   95.85%
+    Req/Sec    27.02k     1.25k   46.54k    85.94%
+  3231644 requests in 30.10s, 394.49MB read
+Requests/sec: 107365.95
+Transfer/sec:     13.11MB
+```
