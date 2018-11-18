@@ -18,7 +18,7 @@
 | [Python](#python)         | [gunicorn + meinheld](#python-gunicorn--meinheld)                  |        `142269.85`  |
 | [Golang](#golang)         | [net/http](#go-nethttp)                                            |        `112160.14`  |
 | [Golang](#golang)         | [echo](#go-echo)                                                   |        `107365.95`  |
-| [Golang](#golang)         | [gin](#go-gin)                                                    |        `102053.41`  |
+| [Golang](#golang)         | [gin](#go-gin)                                                     |        `102053.41`  |
 | [Rust](#rust)             | [iron](#rust-iron)                                                 |         `79042.21`  |
 | [Elixir](#elixir)         | [cowboy](#elixir-cowboy)                                           |         `62189.22`  |
 | [Scala](#scala)           | [Play Framework 2.x + netty](#scala-play-framework-2x--netty)      |         `54774.22`  |
