@@ -19,6 +19,7 @@
 | [Golang](#golang)         | [net/http](#go-nethttp)                                            |        `112160.14`  |
 | [Golang](#golang)         | [echo](#go-echo)                                                   |        `107365.95`  |
 | [Golang](#golang)         | [gin](#go-gin)                                                     |        `102053.41`  |
+| [Scala](#scala)           | [Finatra](#scala-finatra)                                          |        `101039.92`  |
 | [Rust](#rust)             | [iron](#rust-iron)                                                 |         `79042.21`  |
 | [Elixir](#elixir)         | [cowboy](#elixir-cowboy)                                           |         `62189.22`  |
 | [Scala](#scala)           | [Play Framework 2.x + netty](#scala-play-framework-2x--netty)      |         `54774.22`  |
@@ -853,4 +854,29 @@ Running 30s test @ http://192.168.10.10:4000/
   3071775 requests in 30.10s, 374.97MB read
 Requests/sec: 102053.41
 Transfer/sec:     12.46MB
+```
+
+## 🚀Scala: Finatra
+
+* [Finatra](https://github.com/twitter/finatra)
+
+### Bootstrap
+
+```bash
+cd servers/finatra
+sbt "run -http.port=:4000"
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.37ms    1.72ms  38.96ms   90.10%
+    Req/Sec    25.43k     1.38k   44.45k    85.77%
+  3041298 requests in 30.10s, 420.56MB read
+Requests/sec: 101039.92
+Transfer/sec:     13.97MB
 ```
