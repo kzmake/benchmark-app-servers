@@ -1,0 +1,25 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "e5848682ef273d42369e2fef81a41aff6bd935ee148a7d149b358cffb17d87cf"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.7"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "japronto": {
+            "git": "https://github.com/squeaky-pl/japronto",
+            "ref": "c6ed1c342b36dd4ddcbe22cd40b0ac03597229e2"
+        }
+    },
+    "develop": {}
+}
