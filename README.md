@@ -22,6 +22,7 @@
 | [Scala](#scala)           | [Finatra](#scala-finatra)                                          |        `101039.92`  |
 | [Rust](#rust)             | [iron](#rust-iron)                                                 |         `79042.21`  |
 | [Elixir](#elixir)         | [cowboy](#elixir-cowboy)                                           |         `62189.22`  |
+| [Scala](#scala)           | [akka-http](#scala-akka-http)                                      |         `60694.92`  |
 | [Scala](#scala)           | [Play Framework 2.x + netty](#scala-play-framework-2x--netty)      |         `54774.22`  |
 | [Rust](#rust)             | [rocket](#rust-rocket)                                             |         `50183.59`  |
 | [Elixir](#elixir)         | [cowboy + plug](#elixir-cowboy--plug)                              |         `48501.17`  |
@@ -879,4 +880,30 @@ Running 30s test @ http://192.168.10.10:4000/
   3041298 requests in 30.10s, 420.56MB read
 Requests/sec: 101039.92
 Transfer/sec:     13.97MB
+```
+
+
+## 🚀Scala: akka-http
+
+* [akka-http](https://doc.akka.io/docs/akka-http/current/index.html)
+
+### Bootstrap
+
+```bash
+cd servers/akka-http
+sbt run
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.60ms    6.70ms 270.24ms   94.87%
+    Req/Sec    15.30k     2.51k   33.21k    68.67%
+  1826908 requests in 30.10s, 242.18MB read
+Requests/sec:  60694.92
+Transfer/sec:      8.05MB
 ```
