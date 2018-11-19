@@ -16,6 +16,7 @@
 | [Rust](#rust)             | [hyper](#rust-hyper)                                               |        `181978.18`  |
 | [Nim](#nim)               | [jester](#nim-jester)                                              |        `180562.05`  |
 | [Golang](#golang)         | [fasthttp](#go-fasthttp)                                           |        `178742.38`  |
+| [Scala](#scala)           | [colossus](#scala-colossus)                                        |        `153630.81`  |
 | [Python](#python)         | [gunicorn + meinheld](#python-gunicorn--meinheld)                  |        `142269.85`  |
 | [Golang](#golang)         | [net/http](#go-nethttp)                                            |        `112160.14`  |
 | [Golang](#golang)         | [echo](#go-echo)                                                   |        `107365.95`  |
@@ -933,4 +934,28 @@ Running 30s test @ http://192.168.10.10:4000/
   5484442 requests in 30.10s, 475.96MB read
 Requests/sec: 182209.20
 Transfer/sec:     15.81MB
+```
+
+## 🚀Scala: colossus
+
+* [colossus](http://tumblr.github.io/colossus/)
+
+### Bootstrap
+
+```bash
+cd servers/colossus
+sbt run
+```
+
+### Rps result
+
+```bash
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     0.91ms    5.93ms 222.35ms   99.66%
+    Req/Sec    38.69k     1.97k   61.96k    86.59%
+  4624180 requests in 30.10s, 590.93MB read
+Requests/sec: 153630.81
+Transfer/sec:     19.63MB
 ```
