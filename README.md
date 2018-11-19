@@ -12,6 +12,7 @@
 
 | Language                  | App Server                                                         | Req/sec             |
 | :------------------------ | :----------------------------------------------------------------- | ------------------: |
+| [Python](#python)         | [japronto](#python-japronto)                                       |        `182209.20`  |
 | [Rust](#rust)             | [hyper](#rust-hyper)                                               |        `181978.18`  |
 | [Nim](#nim)               | [jester](#nim-jester)                                              |        `180562.05`  |
 | [Golang](#golang)         | [fasthttp](#go-fasthttp)                                           |        `178742.38`  |
@@ -906,4 +907,30 @@ Running 30s test @ http://192.168.10.10:4000/
   1826908 requests in 30.10s, 242.18MB read
 Requests/sec:  60694.92
 Transfer/sec:      8.05MB
+```
+
+## 🚀Python: japronto
+
+* [japronto](https://github.com/squeaky-pl/japronto)
+
+### Bootstrap
+
+```bash
+cd servers/japronto
+pipenv sync
+pipenv run server
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000/
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   578.94us    1.21ms  41.06ms   99.73%
+    Req/Sec    45.90k     1.77k   70.19k    92.09%
+  5484442 requests in 30.10s, 475.96MB read
+Requests/sec: 182209.20
+Transfer/sec:     15.81MB
 ```
