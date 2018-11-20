@@ -10,6 +10,8 @@
 
 ### Results
 
+c: connections
+
 |        Language         |                            Frameworks                            | RPS(c=10)  | RPS(c=100)  |  RPS(c=1K)  |
 | :---------------------- | :--------------------------------------------------------------- | ---------: | ----------: | ----------: |
 | [Python](#python)       | [japronto](#python-japronto)                                     | `35192.51` | `182209.20` | `313111.38` |
@@ -23,13 +25,13 @@
 | [Golang](#golang)       | [gin](#go-gin)                                                   |            | `102053.41` |             |
 | [Scala](#scala)         | [Finatra](#scala-finatra)                                        |            | `101039.92` |             |
 | [Rust](#rust)           | [iron](#rust-iron)                                               |            |  `79042.21` |             |
-| [Elixir](#elixir)       | [cowboy](#elixir-cowboy)                                         |            |  `62189.22` |             |
-| [Scala](#scala)         | [akka-http](#scala-akka-http)                                    |            |  `60694.92` |             |
-| [Scala](#scala)         | [Play Framework 2.x + netty](#scala-play-framework-2x--netty)    |            |  `54774.22` |             |
-| [Rust](#rust)           | [rocket](#rust-rocket)                                           |            |  `50183.59` |             |
-| [Elixir](#elixir)       | [cowboy + plug](#elixir-cowboy--plug)                            |            |  `48501.17` |             |
-| [Elixir](#elixir)       | [cowboy2 + plug](#elixir-cowboy2--plug)                          |            |  `33547.23` |             |
-| [Ballerina](#ballerina) | [Ballerina](#ballerina-pure)                                     |            |  `26570.28` |             |
+| [Elixir](#elixir)       | [cowboy](#elixir-cowboy)                                         | `21982.09` |  `62189.22` |  `58050.46` |
+| [Scala](#scala)         | [akka-http](#scala-akka-http)                                    | `14829.31` |  `60694.92` |  `65393.73` |
+| [Scala](#scala)         | [Play Framework 2.x + netty](#scala-play-framework-2x--netty)    | `21157.73` |  `54774.22` |  `59055.88` |
+| [Rust](#rust)           | [rocket](#rust-rocket)                                           |      `nan` |  `50183.59` |       `nan` |
+| [Elixir](#elixir)       | [cowboy + plug](#elixir-cowboy--plug)                            | `20930.40` |  `48501.17` |  `42336.23` |
+| [Elixir](#elixir)       | [cowboy2 + plug](#elixir-cowboy2--plug)                          | `17279.92` |  `33547.23` |  `30558.31` |
+| [Ballerina](#ballerina) | [Ballerina](#ballerina-pure)                                     | `13055.05` |  `26570.28` |  `32383.85` |
 | [Python](#python)       | [gunicorn + flask + meinheld](#python-gunicorn--flask--meinheld) |            |  `21216.30` |             |
 | [Elixir](#elixir)       | [cowboy + phoenix](#elixir-cowboy--phoenix)                      |            |  `19897.84` |             |
 | [Python](#python)       | [bjoern + bottle](#python-bjoern--bottle)                        |            |  `17342.36` |             |
