@@ -10,37 +10,37 @@
 
 ### Results
 
-| Language                  | App Server                                                         | Req/sec             |
-| :------------------------ | :----------------------------------------------------------------- | ------------------: |
-| [Python](#python)         | [japronto](#python-japronto)                                       |        `182209.20`  |
-| [Rust](#rust)             | [hyper](#rust-hyper)                                               |        `181978.18`  |
-| [Nim](#nim)               | [jester](#nim-jester)                                              |        `180562.05`  |
-| [Golang](#golang)         | [fasthttp](#go-fasthttp)                                           |        `178742.38`  |
-| [Scala](#scala)           | [colossus](#scala-colossus)                                        |        `153630.81`  |
-| [Python](#python)         | [gunicorn + meinheld](#python-gunicorn--meinheld)                  |        `142269.85`  |
-| [Golang](#golang)         | [net/http](#go-nethttp)                                            |        `112160.14`  |
-| [Golang](#golang)         | [echo](#go-echo)                                                   |        `107365.95`  |
-| [Golang](#golang)         | [gin](#go-gin)                                                     |        `102053.41`  |
-| [Scala](#scala)           | [Finatra](#scala-finatra)                                          |        `101039.92`  |
-| [Rust](#rust)             | [iron](#rust-iron)                                                 |         `79042.21`  |
-| [Elixir](#elixir)         | [cowboy](#elixir-cowboy)                                           |         `62189.22`  |
-| [Scala](#scala)           | [akka-http](#scala-akka-http)                                      |         `60694.92`  |
-| [Scala](#scala)           | [Play Framework 2.x + netty](#scala-play-framework-2x--netty)      |         `54774.22`  |
-| [Rust](#rust)             | [rocket](#rust-rocket)                                             |         `50183.59`  |
-| [Elixir](#elixir)         | [cowboy + plug](#elixir-cowboy--plug)                              |         `48501.17`  |
-| [Elixir](#elixir)         | [cowboy2 + plug](#elixir-cowboy2--plug)                            |         `33547.23`  |
-| [Ballerina](#ballerina)   | [Ballerina](#ballerina-pure)                                       |         `26570.28`  |
-| [Python](#python)         | [gunicorn + flask + meinheld](#python-gunicorn--flask--meinheld)   |         `21216.30`  |
-| [Elixir](#elixir)         | [cowboy + phoenix](#elixir-cowboy--phoenix)                        |         `19897.84`  |
-| [Python](#python)         | [bjoern + bottle](#python-bjoern--bottle)                          |         `17342.36`  |
-| [Elixir](#elixir)         | [cowboy2 + maru](#elixir-cowboy2--maru)                            |         `15345.62`  |
-| [Python](#python)         | [gunicorn](#python-gunicorn)                                       |         `11505.21`  |
-| [Python](#python)         | [uwsgi + flask](#python-uwsgi--flask)                              |          `8327.47`  |
-| [Python](#python)         | [gunicorn + flask](#python-gunicorn--flask)                        |          `7499.01`  |
-| [Ruby](#ruby)             | [Ruby on Rails 5.x + unicorn](#ruby-rails-5x--unicorn)             |          `3748.68`  |
-| [Python](#python)         | [bottle](#python-bottle)                                           |          `2318.08`  |
-| [Ruby](#ruby)             | [Ruby on Rails 5.x + puma](#ruby-rails-5x--puma)                   |          `2134.67`  |
-| [Python](#python)         | [flask](#python-flask)                                             |          `1207.28`  |
+|        Language         |                            Frameworks                            | RPS(c=10)  | RPS(c=100)  |  RPS(c=1K)  |
+| :---------------------- | :--------------------------------------------------------------- | ---------: | ----------: | ----------: |
+| [Python](#python)       | [japronto](#python-japronto)                                     | `35192.51` | `182209.20` | `313111.38` |
+| [Rust](#rust)           | [hyper](#rust-hyper)                                             | `31478.74` | `181978.18` | `250753.83` |
+| [Nim](#nim)             | [jester](#nim-jester)                                            | `37875.16` | `180562.05` | `267158.10` |
+| [Golang](#golang)       | [fasthttp](#go-fasthttp)                                         | `32896.92` | `178742.38` | `272827.53` |
+| [Scala](#scala)         | [colossus](#scala-colossus)                                      | `30223.88` | `153630.81` | `173208.76` |
+| [Python](#python)       | [gunicorn + meinheld](#python-gunicorn--meinheld)                |            | `142269.85` |             |
+| [Golang](#golang)       | [net/http](#go-nethttp)                                          |            | `112160.14` |             |
+| [Golang](#golang)       | [echo](#go-echo)                                                 |            | `107365.95` |             |
+| [Golang](#golang)       | [gin](#go-gin)                                                   |            | `102053.41` |             |
+| [Scala](#scala)         | [Finatra](#scala-finatra)                                        |            | `101039.92` |             |
+| [Rust](#rust)           | [iron](#rust-iron)                                               |            |  `79042.21` |             |
+| [Elixir](#elixir)       | [cowboy](#elixir-cowboy)                                         |            |  `62189.22` |             |
+| [Scala](#scala)         | [akka-http](#scala-akka-http)                                    |            |  `60694.92` |             |
+| [Scala](#scala)         | [Play Framework 2.x + netty](#scala-play-framework-2x--netty)    |            |  `54774.22` |             |
+| [Rust](#rust)           | [rocket](#rust-rocket)                                           |            |  `50183.59` |             |
+| [Elixir](#elixir)       | [cowboy + plug](#elixir-cowboy--plug)                            |            |  `48501.17` |             |
+| [Elixir](#elixir)       | [cowboy2 + plug](#elixir-cowboy2--plug)                          |            |  `33547.23` |             |
+| [Ballerina](#ballerina) | [Ballerina](#ballerina-pure)                                     |            |  `26570.28` |             |
+| [Python](#python)       | [gunicorn + flask + meinheld](#python-gunicorn--flask--meinheld) |            |  `21216.30` |             |
+| [Elixir](#elixir)       | [cowboy + phoenix](#elixir-cowboy--phoenix)                      |            |  `19897.84` |             |
+| [Python](#python)       | [bjoern + bottle](#python-bjoern--bottle)                        |            |  `17342.36` |             |
+| [Elixir](#elixir)       | [cowboy2 + maru](#elixir-cowboy2--maru)                          |            |  `15345.62` |             |
+| [Python](#python)       | [gunicorn](#python-gunicorn)                                     |            |  `11505.21` |             |
+| [Python](#python)       | [uwsgi + flask](#python-uwsgi--flask)                            |            |   `8327.47` |             |
+| [Python](#python)       | [gunicorn + flask](#python-gunicorn--flask)                      |            |   `7499.01` |             |
+| [Ruby](#ruby)           | [Ruby on Rails 5.x + unicorn](#ruby-rails-5x--unicorn)           |            |   `3748.68` |             |
+| [Python](#python)       | [bottle](#python-bottle)                                         |            |   `2318.08` |             |
+| [Ruby](#ruby)           | [Ruby on Rails 5.x + puma](#ruby-rails-5x--puma)                 |            |   `2134.67` |             |
+| [Python](#python)       | [flask](#python-flask)                                           |            |   `1207.28` |             |
 
 ## 📝Table of Contents
 
@@ -185,7 +185,7 @@ session    required     pam_limits.so
 5回計測し、 RPS がもっとも良い結果をピックアップする。
 
 ```bash
-wrk -t 4 -c 100 -d30s --timeout 2000 http://0.0.0.0:9292
+wrk -t 4 -c 100 -d 30s --timeout 2000 http://0.0.0.0:9292
 ```
 
 ### dstat
