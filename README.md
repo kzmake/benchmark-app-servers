@@ -19,12 +19,12 @@ c: connections
 | [Nim](#nim)             | [jester](#nim-jester)                                            | `37875.16` | `180562.05` | `267158.10` |
 | [Golang](#golang)       | [fasthttp](#go-fasthttp)                                         | `32896.92` | `178742.38` | `272827.53` |
 | [Scala](#scala)         | [colossus](#scala-colossus)                                      | `30223.88` | `153630.81` | `173208.76` |
-| [Python](#python)       | [gunicorn + meinheld](#python-gunicorn--meinheld)                |            | `142269.85` |             |
-| [Golang](#golang)       | [net/http](#go-nethttp)                                          |            | `112160.14` |             |
-| [Golang](#golang)       | [echo](#go-echo)                                                 |            | `107365.95` |             |
-| [Golang](#golang)       | [gin](#go-gin)                                                   |            | `102053.41` |             |
-| [Scala](#scala)         | [Finatra](#scala-finatra)                                        |            | `101039.92` |             |
-| [Rust](#rust)           | [iron](#rust-iron)                                               |            |  `79042.21` |             |
+| [Python](#python)       | [gunicorn + meinheld](#python-gunicorn--meinheld)                | `30511.41` | `142269.85` | `147096.10` |
+| [Golang](#golang)       | [net/http](#go-nethttp)                                          | `27543.16` | `112160.14` | `126247.31` |
+| [Golang](#golang)       | [echo](#go-echo)                                                 | `27501.64` | `107365.95` | `121058.50` |
+| [Golang](#golang)       | [gin](#go-gin)                                                   | `27195.70` | `102053.41` | `117794.30` |
+| [Scala](#scala)         | [Finatra](#scala-finatra)                                        | `25884.09` | `101039.92` |  `95836.10` |
+| [Rust](#rust)           | [iron](#rust-iron)                                               | `32352.37` |  `79042.21` |  `78359.21` |
 | [Scala](#scala)         | [finch](#scala-finch)                                            | `23548.16` |  `67201.73` |  `67690.82` |
 | [Elixir](#elixir)       | [cowboy](#elixir-cowboy)                                         | `21982.09` |  `62189.22` |  `58050.46` |
 | [Scala](#scala)         | [akka-http](#scala-akka-http)                                    | `14829.31` |  `60694.92` |  `65393.73` |
@@ -33,17 +33,17 @@ c: connections
 | [Elixir](#elixir)       | [cowboy + plug](#elixir-cowboy--plug)                            | `20930.40` |  `48501.17` |  `42336.23` |
 | [Elixir](#elixir)       | [cowboy2 + plug](#elixir-cowboy2--plug)                          | `17279.92` |  `33547.23` |  `30558.31` |
 | [Ballerina](#ballerina) | [Ballerina](#ballerina-pure)                                     | `13055.05` |  `26570.28` |  `32383.85` |
-| [Python](#python)       | [gunicorn + flask + meinheld](#python-gunicorn--flask--meinheld) |            |  `21216.30` |             |
-| [Elixir](#elixir)       | [cowboy + phoenix](#elixir-cowboy--phoenix)                      |            |  `19897.84` |             |
-| [Python](#python)       | [bjoern + bottle](#python-bjoern--bottle)                        |            |  `17342.36` |             |
-| [Elixir](#elixir)       | [cowboy2 + maru](#elixir-cowboy2--maru)                          |            |  `15345.62` |             |
-| [Python](#python)       | [gunicorn](#python-gunicorn)                                     |            |  `11505.21` |             |
-| [Python](#python)       | [uwsgi + flask](#python-uwsgi--flask)                            |            |   `8327.47` |             |
-| [Python](#python)       | [gunicorn + flask](#python-gunicorn--flask)                      |            |   `7499.01` |             |
-| [Ruby](#ruby)           | [Ruby on Rails 5.x + unicorn](#ruby-rails-5x--unicorn)           |            |   `3748.68` |             |
-| [Python](#python)       | [bottle](#python-bottle)                                         |            |   `2318.08` |             |
-| [Ruby](#ruby)           | [Ruby on Rails 5.x + puma](#ruby-rails-5x--puma)                 |            |   `2134.67` |             |
-| [Python](#python)       | [flask](#python-flask)                                           |            |   `1207.28` |             |
+| [Python](#python)       | [gunicorn + flask + meinheld](#python-gunicorn--flask--meinheld) | `15485.77` |  `21216.30` |  `20185.63` |
+| [Elixir](#elixir)       | [cowboy + phoenix](#elixir-cowboy--phoenix)                      | `15972.04` |  `19897.84` |  `29068.48` |
+| [Python](#python)       | [bjoern + bottle](#python-bjoern--bottle)                        | `14890.77` |  `17342.36` |  `16298.68` |
+| [Elixir](#elixir)       | [cowboy2 + maru](#elixir-cowboy2--maru)                          | `13616.37` |  `15345.62` |  `14410.75` |
+| [Python](#python)       | [gunicorn](#python-gunicorn)                                     |  `7679.21` |  `11505.21` |  `10999.50` |
+| [Python](#python)       | [uwsgi + flask](#python-uwsgi--flask)                            |  `6575.53` |   `8327.47` |   `8272.04` |
+| [Python](#python)       | [gunicorn + flask](#python-gunicorn--flask)                      |  `3961.87` |   `7499.01` |   `7328.44` |
+| [Ruby](#ruby)           | [Ruby on Rails 5.x + unicorn](#ruby-rails-5x--unicorn)           |  `3990.49` |   `3748.68` |   `3941.27` |
+| [Python](#python)       | [bottle](#python-bottle)                                         |  `2403.29` |   `2318.08` |   `1752.36` |
+| [Ruby](#ruby)           | [Ruby on Rails 5.x + puma](#ruby-rails-5x--puma)                 |  `3075.53` |   `2134.67` |   `2241.91` |
+| [Python](#python)       | [flask](#python-flask)                                           |  `1077.82` |   `1207.28` |   `1205.87` |
 
 ## 📝Table of Contents
 
