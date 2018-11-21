@@ -25,6 +25,7 @@ c: connections
 | [Golang](#golang)       | [gin](#go-gin)                                                   |            | `102053.41` |             |
 | [Scala](#scala)         | [Finatra](#scala-finatra)                                        |            | `101039.92` |             |
 | [Rust](#rust)           | [iron](#rust-iron)                                               |            |  `79042.21` |             |
+| [Scala](#scala)         | [finch](#scala-finch)                                            | `23548.16` |  `67201.73` |  `67690.82` |
 | [Elixir](#elixir)       | [cowboy](#elixir-cowboy)                                         | `21982.09` |  `62189.22` |  `58050.46` |
 | [Scala](#scala)         | [akka-http](#scala-akka-http)                                    | `14829.31` |  `60694.92` |  `65393.73` |
 | [Scala](#scala)         | [Play Framework 2.x + netty](#scala-play-framework-2x--netty)    | `21157.73` |  `54774.22` |  `59055.88` |
@@ -952,6 +953,7 @@ sbt run
 ### Rps result
 
 ```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
 Running 30s test @ http://192.168.10.10:4000/
   4 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -960,4 +962,30 @@ Running 30s test @ http://192.168.10.10:4000/
   4624180 requests in 30.10s, 590.93MB read
 Requests/sec: 153630.81
 Transfer/sec:     19.63MB
+```
+
+
+## 🚀Scala: finch
+
+* [finch](https://finagle.github.io/finch/)
+
+### Bootstrap
+
+```bash
+cd servers/finch
+sbt run
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     3.20ms    4.34ms  48.98ms   83.35%
+    Req/Sec    16.91k     1.03k   31.06k    83.19%
+  2022737 requests in 30.10s, 246.92MB read
+Requests/sec:  67201.73
+Transfer/sec:      8.20MB
 ```
