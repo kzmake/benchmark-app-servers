@@ -31,6 +31,7 @@ c: connections
 | [Scala](#scala)         | [Play Framework 2.x + netty](#scala-play-framework-2x--netty)    | `21157.73` |  `54774.22` |  `59055.88` |
 | [Rust](#rust)           | [rocket](#rust-rocket)                                           |      `nan` |  `50183.59` |       `nan` |
 | [Elixir](#elixir)       | [cowboy + plug](#elixir-cowboy--plug)                            | `20930.40` |  `48501.17` |  `42336.23` |
+| [Scala](#scala)         | [http4s](#scala-http4s)                                          | `20936.95` |  `41011.60` |  `41406.29` |
 | [Elixir](#elixir)       | [cowboy2 + plug](#elixir-cowboy2--plug)                          | `17279.92` |  `33547.23` |  `30558.31` |
 | [Ballerina](#ballerina) | [Ballerina](#ballerina-pure)                                     | `13055.05` |  `26570.28` |  `32383.85` |
 | [Python](#python)       | [gunicorn + flask + meinheld](#python-gunicorn--flask--meinheld) | `15485.77` |  `21216.30` |  `20185.63` |
@@ -988,4 +989,29 @@ Running 30s test @ http://192.168.10.10:4000
   2022737 requests in 30.10s, 246.92MB read
 Requests/sec:  67201.73
 Transfer/sec:      8.20MB
+```
+
+## 🚀Scala: http4s
+
+* [http4s](https://http4s.org)
+
+### Bootstrap
+
+```bash
+cd servers/https://http4s.org
+sbt run
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.74ms    3.76ms 210.31ms   96.54%
+    Req/Sec    10.41k     1.93k   34.89k    84.97%
+  1234449 requests in 30.10s, 150.69MB read
+Requests/sec:  41011.60
+Transfer/sec:      5.01MB
 ```
