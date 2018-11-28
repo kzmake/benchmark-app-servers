@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+gunicorn = "*"
+
+[dev-packages]
+
+[scripts]
+server = "gunicorn -w 4 django2.wsgi --bind=0.0.0.0:4000"
+
+[requires]
+python_version = "3.7"
