@@ -41,6 +41,7 @@ c: connections
 | [Python](#python)       | [gunicorn](#python-gunicorn)                                     |  `7679.21` |  `11505.21` |  `10999.50` |
 | [Python](#python)       | [uwsgi + flask](#python-uwsgi--flask)                            |  `6575.53` |   `8327.47` |   `8272.04` |
 | [Python](#python)       | [gunicorn + flask](#python-gunicorn--flask)                      |  `3961.87` |   `7499.01` |   `7328.44` |
+| [Python](#python)       | [gunicorn + django](#python-gunicorn--django)                    |  `3459.65` |   `4085.68` |   `5958.89` |
 | [Ruby](#ruby)           | [Ruby on Rails 5.x + unicorn](#ruby-rails-5x--unicorn)           |  `3990.49` |   `3748.68` |   `3941.27` |
 | [Python](#python)       | [bottle](#python-bottle)                                         |  `2403.29` |   `2318.08` |   `1752.36` |
 | [Ruby](#ruby)           | [Ruby on Rails 5.x + puma](#ruby-rails-5x--puma)                 |  `3075.53` |   `2134.67` |   `2241.91` |
@@ -998,7 +999,7 @@ Transfer/sec:      8.20MB
 ### Bootstrap
 
 ```bash
-cd servers/https://http4s.org
+cd servers/http4s
 sbt run
 ```
 
@@ -1014,4 +1015,31 @@ Running 30s test @ http://192.168.10.10:4000
   1234449 requests in 30.10s, 150.69MB read
 Requests/sec:  41011.60
 Transfer/sec:      5.01MB
+```
+
+
+## 🚀Python: gunicorn + django
+
+* [gunicorn](https://github.com/benoitc/gunicorn)
+* [django](https://www.djangoproject.com)
+
+### Bootstrap
+
+```bash
+cd servers/gunicorn-django
+pipenv run server
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    15.92ms    7.04ms  58.66ms   70.58%
+    Req/Sec     1.03k   317.53     1.64k    64.30%
+  122854 requests in 30.07s, 21.79MB read
+Requests/sec:   4085.68
+Transfer/sec:    742.12KB
 ```
