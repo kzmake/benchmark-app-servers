@@ -39,6 +39,7 @@ c: connections
 | [Python](#python)       | [bjoern + bottle](#python-bjoern--bottle)                        | `14890.77` |  `17342.36` |  `16298.68` |
 | [Elixir](#elixir)       | [cowboy2 + maru](#elixir-cowboy2--maru)                          | `13616.37` |  `15345.62` |  `14410.75` |
 | [Python](#python)       | [gunicorn](#python-gunicorn)                                     |  `7679.21` |  `11505.21` |  `10999.50` |
+| [Node.js](#nodejs)      | [express](#nodejs-express)                                       |  `9871.12` |   `9844.02` |   `9687.88` |
 | [Python](#python)       | [uwsgi + flask](#python-uwsgi--flask)                            |  `6575.53` |   `8327.47` |   `8272.04` |
 | [Python](#python)       | [gunicorn + flask](#python-gunicorn--flask)                      |  `3961.87` |   `7499.01` |   `7328.44` |
 | [Python](#python)       | [gunicorn + django](#python-gunicorn--django)                    |  `3459.65` |   `4085.68` |   `5958.89` |
@@ -61,6 +62,7 @@ c: connections
   * [Scala](#scala)
   * [Ruby](#ruby)
   * [Ballerina](#ballerina)
+  * [Node.js](#nodejs)
 * [Platform](#platform)
   * [App server](#app-server)
   * [Load Server](#load-server)
@@ -120,6 +122,10 @@ c: connections
 ### Ballerina
 
 * Ballerina 0.983.0
+
+### Node.js
+
+* Node.js 11.3.0
 
 
 ## 🌱Platform
@@ -1042,4 +1048,31 @@ Running 30s test @ http://192.168.10.10:4000
   122854 requests in 30.07s, 21.79MB read
 Requests/sec:   4085.68
 Transfer/sec:    742.12KB
+```
+
+
+## 🚀Node.js: express
+
+* [express](http://expressjs.com)
+
+### Bootstrap
+
+```bash
+cd servers/express
+yarn install
+yarn run start
+```
+
+### Rps result
+
+```bash
+# wrk -t 4 -c 100 -d30s --timeout 2000 http://192.168.10.10:4000/
+Running 30s test @ http://192.168.10.10:4000
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    10.19ms    1.81ms  53.62ms   98.08%
+    Req/Sec     2.47k   128.61     2.72k    72.58%
+  295459 requests in 30.01s, 60.86MB read
+Requests/sec:   9844.02
+Transfer/sec:      2.03MB
 ```
